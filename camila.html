@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎉 Happy B-Day 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://i.ibb.co/7xcW4bN5/image.png') no-repeat center center fixed;
+      background-size: cover;
+      overflow: hidden;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+    }
+    .confetti {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: #fcd;
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+    .container {
+      position: absolute;
+      width: 100%;
+      top: 30%;
+      z-index: 2;
+    }
+    .title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 1px 1px 4px #000;
+    }
+    input[type="password"] {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: none;
+    }
+    .note {
+      display: none;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #fff;
+      text-shadow: 1px 1px 4px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">🎈 ¡Feliz cumple jeje!</div>
+    <input type="password" id="password" placeholder="Escribe la contraseña" />
+    <div class="note" id="note">
+      <!-- Aquí irá tu nota romántica -->
+    </div>
+  </div>
+
+  <script>
+    // Crear muchos efectos de confeti
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.animationDuration = (5 + Math.random() * 5) + 's';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
+      document.body.appendChild(confetti);
+    }
+
+    // Contraseña
+    const passwordInput = document.getElementById('password');
+    const note = document.getElementById('note');
+
+    passwordInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        if (passwordInput.value === 'titan') {
+          note.style.display = 'block';
+          note.innerHTML = `❤️ Ca.. ca... cami?
+
+Na pelotudita en verdad quería felicitarte, en este dia que es muy especial para ti. Cualquiera diría que han pasado 222 días desde que me hiciste repetir 4 veces cuando te pedi salir.. te juro que prácticamente lo recuerdo como ayer. Podria decirte lo especial que eres, todo lo que me importas o todo lo que te quiero. Pero creo que lo sabes de sobra. Tu forma de ser, como se portas conmigo, TODO, lo que sale de ti te juro que me llena de demasiadas formas, y eso es lo que te hace ser la persona tan especial que eres.
+Hoy cumples 14 añitos (que no esta nada mal ehh para ser peruana eh), asi que espero que lo puedas pasar genial con tu mami, papi y amigos. Quería agradecerte todo lo que hiciste por mi, ya que me ayudaste mucho a mejorar en muchos aspectos y siempre me has tenido un trato increíble, lo que prácticamente me cambio como persona. Lo dicho, no quiero seguir llorando mientras escribo este mensaje, asi que mejor lo dejo por aquí. Simplemente, eres especial, eres increíble, y aun que la forma de quererte haya cambiado, te sigo llevando en mi corazón de una forma muy especial, sonriendo prácticamente cada vez que me llega un mensaje tuyo. Feliz cumpleaños niña rata <3 ❤️`;
+        } else {
+          note.style.display = 'block';
+          note.innerHTML = '❌ Piensa un poco mas, electra y ....?.';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
